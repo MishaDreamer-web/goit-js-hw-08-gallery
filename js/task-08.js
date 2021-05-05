@@ -33,14 +33,14 @@ const createGalleryBoard = function (galleryItems) {
 
     const linkEl = document.createElement('a');
     linkEl.classList.add('gallery__link');
-    linkEl.setAttribute('href', `${item.original}`);
+    linkEl.setAttribute('href', item.original);
 
     const imgEl = document.createElement('img');
     imgEl.classList.add('gallery__image');
-    imgEl.setAttribute('src', `${item.preview}`);
-    imgEl.setAttribute('data-source', `${item.original}`);
-    imgEl.setAttribute('data-index', `${index}`);
-    imgEl.setAttribute('alt', `${item.description}`);
+    imgEl.setAttribute('src', item.preview);
+    imgEl.setAttribute('data-source', item.original);
+    imgEl.setAttribute('data-index', index);
+    imgEl.setAttribute('alt', item.description);
 
     linkEl.append(imgEl);
     listEL.append(linkEl);
@@ -81,6 +81,7 @@ function onCloseModalWindow() {
   window.removeEventListener('keydown', onEscKeyPress);
   window.removeEventListener('keydown', onArrowKeyPress);
 
+  fullScreenImage.setAttribute('src', '');
   backdrop.classList.remove('is-open');
 }
 
